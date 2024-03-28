@@ -1,0 +1,26 @@
+const express = require('express'); // express 가져오기
+
+express = app();
+const port = 3000; // 포트 설정. 변경 가능 부분
+
+app.set('view engine', 'ejs');  // 템플릿 엔진으로 EJS 설정 (다른 엔진은 해당 확장자 사용)
+app.set('views', './view');  // 템플릿 파일 디렉토리 설정 (필요한 경우)
+
+// ejs는 html이랑 비슷하니까 걱정 ㄴㄴ 나중에 비동기처럼 포스트 예정
+
+//라우터
+app.get('/', async(req, res) => { // 비동기. 나중에 따로 포스트 하겠음
+	try{
+    	// 렌더할거면
+        res.render(/*렌더할 파일 이름. ejs나 html이나*/'./index');
+    } catch (err){
+    	console.log(err);
+        res.status(500).send('Server Error'); // server error
+    }
+});
+
+// 라우터 추가 더 ㄱㄴ. 이제 서버 열기
+
+app.listen(port, () => {
+	console.log(`Server listening to port ${port}`)
+);
