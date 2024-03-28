@@ -1,0 +1,20 @@
+// 비동기적으로 데이터를 가져오는 가상의 함수
+function fetchData() {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve('Data fetched!');
+    }, 2000);
+  });
+}
+
+// async 함수 정의
+async function fetchAndLogData() {
+  console.log('Fetching data...');
+  // await 키워드는 비동기 작업이 완료될 때까지 기다림
+  const data = await fetchData();
+  console.log(data);
+  console.log('Data fetched and logged!');
+}
+
+// async 함수 호출
+fetchAndLogData();
